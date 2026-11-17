@@ -240,3 +240,18 @@ a.btn.primary { color: var(--primary-ink); }
 .source a { color: var(--primary); }
 .watch-link { display: inline-block; margin-top: 6px; color: var(--primary); font-weight: 700; }
 @media (max-width: 560px) { .help-head { flex-direction: column; text-align: center; } }
+
+/* ---------- Language switch ---------- */
+.top-actions { display: flex; gap: 8px; align-items: center; }
+.lang-btn {
+  background: var(--card); border: 2px solid var(--line); border-radius: 999px;
+  padding: 6px 14px; font-weight: 800; font-size: 1rem; min-height: 48px;
+}
+.lang-btn:hover { border-color: var(--primary); }
+.logo, .lang-btn { white-space: nowrap; }
+@media (max-width: 560px) {
+  .topbar { gap: 6px; }
+  .logo { font-size: 1.05rem; padding: 0; overflow: hidden; text-overflow: ellipsis; }
+  .lang-btn { padding: 4px 10px; font-size: .85rem; min-height: 44px; }
+  .icon-btn { width: 44px; height: 44px; flex: none; }
+}

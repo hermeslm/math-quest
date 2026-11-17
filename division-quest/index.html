@@ -9,9 +9,14 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <!-- Text marked with data-i18n (textContent), data-i18n-html (innerHTML) or
+       data-i18n-title (title + aria-label) comes from js/lang/<lang>.js -->
   <header class="topbar">
-    <button class="logo" id="go-home" title="Home">🦉 Division Quest</button>
-    <button class="icon-btn" id="sound-btn" title="Sound on/off">🔊</button>
+    <button class="logo" id="go-home" data-i18n="appName" data-i18n-title="home"></button>
+    <div class="top-actions">
+      <button class="lang-btn" id="lang-btn"></button>
+      <button class="icon-btn" id="sound-btn" data-i18n-title="soundToggle">🔊</button>
+    </div>
   </header>
 
   <!-- HOME -->
@@ -19,8 +24,8 @@
     <section class="hero">
       <div class="mascot">🦉</div>
       <div class="bubble">
-        <h1>Hi, math explorer!</h1>
-        <p>Pick a lesson from <b>Topic 5: Divide by 1-Digit Numbers</b>. Every test is new and random!</p>
+        <h1 data-i18n="hello"></h1>
+        <p data-i18n-html="intro"></p>
       </div>
     </section>
     <div id="lesson-grid" class="lesson-grid"></div>
@@ -43,9 +48,9 @@
       <div id="q-hint" class="hint" hidden></div>
       <div id="q-steps" class="steps" hidden></div>
       <div class="actions">
-        <button id="hint-btn" class="btn ghost">💡 Hint</button>
-        <button id="check-btn" class="btn primary">Check ✔</button>
-        <button id="next-btn" class="btn primary" hidden>Next ➜</button>
+        <button id="hint-btn" class="btn ghost" data-i18n="hint"></button>
+        <button id="check-btn" class="btn primary" data-i18n="check"></button>
+        <button id="next-btn" class="btn primary" hidden></button>
       </div>
     </section>
 
@@ -53,7 +58,7 @@
       <button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button>
       <button data-k="4">4</button><button data-k="5">5</button><button data-k="6">6</button>
       <button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button>
-      <button data-k="back" class="k-alt" aria-label="Erase">⌫</button><button data-k="0">0</button><button data-k="enter" class="k-go">✔</button>
+      <button data-k="back" class="k-alt" data-i18n-title="erase">⌫</button><button data-k="0">0</button><button data-k="enter" class="k-go" data-i18n-title="check">✔</button>
     </div>
   </main>
 
@@ -62,38 +67,32 @@
     <section class="card help-head">
       <div class="setup-icon" id="h-icon"></div>
       <div>
-        <p class="pill-label">👪 Parent corner</p>
+        <p class="pill-label" data-i18n="parentCorner"></p>
         <h2 id="h-title"></h2>
         <p id="h-about" class="muted"></p>
       </div>
     </section>
 
     <section class="card help-card">
-      <h3>🎬 Watch and learn together</h3>
+      <h3 data-i18n="watchTogether"></h3>
       <div id="h-media" class="media-btns"></div>
-      <ol class="guide">
-        <li><b>Watch first.</b> Sit with your child and play the <b>Visual Learning Animation</b>. It shows the idea of the lesson step by step.</li>
-        <li><b>Pause and ask.</b> When the animation asks a question, pause it. Let your child answer before you continue.</li>
-        <li><b>Retell it.</b> At the end, ask your child to explain the method in their own words, or to show it with a drawing.</li>
-        <li><b>Still stuck?</b> Watch the <b>Another Look Video</b>. It explains the same idea in a different way.</li>
-        <li><b>Practice.</b> Work through the example below together, try the home activity, then start a Division Quest test.</li>
-      </ol>
+      <ol class="guide" id="h-guide"></ol>
     </section>
 
     <section class="card help-card" id="h-mathhelp-card">
-      <h3>🧮 Math help at home</h3>
+      <h3 data-i18n="mathHelp"></h3>
       <div id="h-mathhelp" class="rich"></div>
     </section>
 
     <section class="card help-card">
-      <h3>🏠 Home activity: <span id="h-act-title"></span></h3>
+      <h3><span data-i18n="homeActivity"></span> <span id="h-act-title"></span></h3>
       <div id="h-activity" class="rich"></div>
     </section>
 
-    <p class="source">Source: <a id="h-source" target="_blank" rel="noopener">enVision Florida Family Engagement — lesson page</a></p>
+    <p class="source"><span data-i18n="source"></span> <a id="h-source" target="_blank" rel="noopener" data-i18n="sourceLink"></a></p>
     <div class="actions center">
-      <button id="help-start" class="btn primary">Start practice 🚀</button>
-      <button id="help-back" class="btn ghost">📚 All lessons</button>
+      <button id="help-start" class="btn primary" data-i18n="startPractice"></button>
+      <button id="help-back" class="btn ghost" data-i18n="allLessons"></button>
     </div>
   </main>
 
@@ -104,11 +103,11 @@
       <h2 id="r-title"></h2>
       <p id="r-score" class="r-score"></p>
       <div class="actions center">
-        <button id="again-btn" class="btn primary">🔄 New test</button>
-        <button id="menu-btn" class="btn ghost">📚 Pick a lesson</button>
+        <button id="again-btn" class="btn primary" data-i18n="newTest"></button>
+        <button id="menu-btn" class="btn ghost" data-i18n="pickLesson"></button>
       </div>
     </section>
-    <h3 class="review-title">Let's review</h3>
+    <h3 class="review-title" data-i18n="review"></h3>
     <div id="r-review"></div>
   </main>
 
@@ -118,7 +117,7 @@
       <div class="setup-icon" id="s-icon"></div>
       <h2 id="s-title"></h2>
       <p id="s-about"></p>
-      <p class="label">How many questions?</p>
+      <p class="label" data-i18n="howMany"></p>
       <div class="count-pick" id="count-pick">
         <button type="button" data-n="5">5</button>
         <button type="button" data-n="10" class="on">10</button>
@@ -126,19 +125,21 @@
         <button type="button" data-n="20">20</button>
       </div>
       <div class="actions center">
-        <button type="button" id="start-btn" class="btn primary">Start! 🚀</button>
-        <button type="button" id="print-btn" class="btn ghost">🖨️ Printable worksheet</button>
+        <button type="button" id="start-btn" class="btn primary" data-i18n="start"></button>
+        <button type="button" id="print-btn" class="btn ghost" data-i18n="print"></button>
       </div>
       <div class="actions center" id="setup-help">
-        <button type="button" id="help-btn" class="btn ghost">👪 Help at home</button>
-        <a id="anim-btn" class="btn ghost" target="_blank" rel="noopener">🎬 Lesson animation</a>
+        <button type="button" id="help-btn" class="btn ghost" data-i18n="helpAtHome"></button>
+        <a id="anim-btn" class="btn ghost" target="_blank" rel="noopener" data-i18n="lessonAnimation"></a>
       </div>
-      <button value="cancel" class="close-x" aria-label="Close">✕</button>
+      <button value="cancel" class="close-x" data-i18n-title="close">✕</button>
     </form>
   </dialog>
 
   <div id="print-area"></div>
 
+  <script src="js/lang/en.js"></script>
+  <script src="js/lang/es.js"></script>
   <script src="js/lesson-help.js"></script>
   <script src="js/generators.js"></script>
   <script src="js/app.js"></script>

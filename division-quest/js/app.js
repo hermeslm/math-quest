@@ -1,16 +1,9 @@
-// Division Quest — interactive quiz UI
+// Division Quest — interactive quiz UI (English / Español)
 "use strict";
 
 const $ = s => document.querySelector(s);
 const COLORS = ["#ffd166", "#a0e7e5", "#ffaebc", "#b4f8c8", "#c3b1e1", "#fbe7c6",
   "#9ad0f5", "#ffc09f", "#d0f4de", "#fcf6bd", "#e4c1f9"];
-const CHEERS = ["Awesome! 🎉", "You got it! ⭐", "Math superstar! 🌟", "Great thinking! 🧠", "Wow, nice work! 🙌", "Perfect! 💯"];
-const RETRY = ["Almost! Try again. 💪", "Not quite — check your work. 🔍", "Keep going, you can do it! 🚀"];
-
-const state = {
-  lesson: null, count: 10, questions: [], i: 0, attempts: 0, results: [],
-  sound: loadPref("sound", true), activeInput: null, locked: false,
-};
 
 // ---------- storage (safe) ----------
 function loadPref(key, fallback) {
@@ -21,6 +14,50 @@ function savePref(key, value) {
   try { localStorage.setItem("dq-" + key, JSON.stringify(value)); } catch { /* ignore */ }
 }
 
+const browserLang = (navigator.language || "en").toLowerCase().startsWith("es") ? "es" : "en";
+
+const state = {
+  lang: LANGS[loadPref("lang", browserLang)] ? loadPref("lang", browserLang) : "en",
+  lesson: null, count: 10,
+  questions: [],   // [{en: Q, es: Q}, ...] — same numbers in every language
+  i: 0, attempts: 0, results: [],
+  sound: loadPref("sound", true), activeInput: null, locked: false,
+  feedback: null,  // {cls, text: () => string} so it can be re-translated
+};
+
+// ---------- i18n ----------
+function t(key, ...args) {
+  const v = LANGS[state.lang].ui[key] ?? LANGS.en.ui[key];
+  return typeof v === "function" ? v(...args) : v;
+}
+const lessonText = id => LANGS[state.lang].lessons[id];
+const lessonTitle = L => (L.id === "mix" ? lessonText(L.id).title : t("lessonTitle", L.id, lessonText(L.id).title));
+const cur = () => state.questions[state.i][state.lang];
+const qAt = k => state.questions[k][state.lang];
+
+function applyStaticText() {
+  document.documentElement.lang = state.lang;
+  document.title = t("pageTitle");
+  document.querySelectorAll("[data-i18n]").forEach(el => (el.textContent = t(el.dataset.i18n)));
+  document.querySelectorAll("[data-i18n-html]").forEach(el => (el.innerHTML = t(el.dataset.i18nHtml)));
+  document.querySelectorAll("[data-i18n-title]").forEach(el => {
+    el.title = t(el.dataset.i18nTitle);
+    el.setAttribute("aria-label", el.title);
+  });
+  $("#lang-btn").textContent = LANGS[state.lang].switchTo;
+}
+
+function setLang(lang) {
+  state.lang = lang;
+  savePref("lang", lang);
+  applyStaticText();
+  if ($("#setup").open) fillSetup();
+  if (!$("#home").hidden) renderHome();
+  else if (!$("#help").hidden) renderHelp(state.lesson);
+  else if (!$("#quiz").hidden) refreshQuestionText();
+  else if (!$("#results").hidden) renderResults();
+}
+
 // ---------- sound ----------
 let actx;
 function tone(freq, start, dur, type = "triangle", vol = 0.15) {
@@ -29,11 +66,11 @@ function tone(freq, start, dur, type = "triangle", vol = 0.15) {
     actx = actx || new (window.AudioContext || window.webkitAudioContext)();
     const o = actx.createOscillator(), g = actx.createGain();
     o.type = type; o.frequency.value = freq;
-    const t = actx.currentTime + start;
-    g.gain.setValueAtTime(vol, t);
-    g.gain.exponentialRampToValueAtTime(0.001, t + dur);
+    const tt = actx.currentTime + start;
+    g.gain.setValueAtTime(vol, tt);
+    g.gain.exponentialRampToValueAtTime(0.001, tt + dur);
     o.connect(g).connect(actx.destination);
-    o.start(t); o.stop(t + dur);
+    o.start(tt); o.stop(tt + dur);
   } catch { /* no audio */ }
 }
 const sfx = {
@@ -75,46 +112,54 @@ function renderHome() {
     b.className = "lesson-card" + (L.id === "mix" ? " mix" : "");
     b.style.setProperty("--c", L.id === "mix" ? "#ffb703" : COLORS[idx % COLORS.length]);
     b.innerHTML = `<span class="lc-icon">${L.icon}</span>
-      ${L.id === "mix" ? "" : `<span class="lc-num">Lesson ${L.id}</span>`}
-      <span class="lc-title">${L.title}</span>
-      <span class="lc-stars" title="Best score">${starStr(best[L.id])}</span>`;
+      ${L.id === "mix" ? "" : `<span class="lc-num">${t("lesson", L.id)}</span>`}
+      <span class="lc-title">${lessonText(L.id).title}</span>
+      <span class="lc-stars" title="${t("bestScore")}">${starStr(best[L.id])}</span>`;
     b.onclick = () => openSetup(L);
     grid.appendChild(b);
   });
   show("home");
 }
 
-function openSetup(L) {
-  state.lesson = L;
+function fillSetup() {
+  const L = state.lesson;
   $("#s-icon").textContent = L.icon;
-  $("#s-title").textContent = L.id === "mix" ? L.title : `Lesson ${L.id}: ${L.title}`;
-  $("#s-about").textContent = L.about;
+  $("#s-title").textContent = lessonTitle(L);
+  $("#s-about").textContent = lessonText(L.id).about;
   const help = helpFor(L.id);
   $("#setup-help").hidden = !help;
   if (help) {
     $("#anim-btn").hidden = !help.animation;
     if (help.animation) $("#anim-btn").href = help.animation;
   }
+}
+
+function openSetup(L) {
+  state.lesson = L;
+  fillSetup();
   document.querySelectorAll("#count-pick button").forEach(b =>
     b.classList.toggle("on", +b.dataset.n === state.count));
   $("#setup").showModal();
 }
 
 // ---------- help at home (parent guide) ----------
-const helpFor = id => (typeof LESSON_HELP !== "undefined" && LESSON_HELP[id] ? LESSON_HELP[id].en : null);
+function helpFor(id) {
+  if (typeof LESSON_HELP === "undefined" || !LESSON_HELP[id]) return null;
+  return LESSON_HELP[id][state.lang] || LESSON_HELP[id].en;
+}
 
 function renderHelp(L) {
   const H = helpFor(L.id);
   if (!H) return;
   state.lesson = L;
   $("#h-icon").textContent = L.icon;
-  $("#h-title").textContent = `Lesson ${L.id}: ${L.title}`;
-  $("#h-about").textContent = L.about;
+  $("#h-title").textContent = lessonTitle(L);
+  $("#h-about").textContent = lessonText(L.id).about;
   const media = [];
-  if (H.animation) media.push(`<a class="btn primary" href="${H.animation}" target="_blank" rel="noopener">🎬 Visual Learning Animation</a>`);
-  if (H.video) media.push(`<a class="btn ghost" href="${H.video}" target="_blank" rel="noopener">📺 Another Look Video</a>`);
-  $("#h-media").innerHTML = media.length ? media.join("")
-    : `<p class="muted">This lesson has no animation of its own. Use the animations from earlier lessons and the real-life ideas below.</p>`;
+  if (H.animation) media.push(`<a class="btn primary" href="${H.animation}" target="_blank" rel="noopener">${t("vla")}</a>`);
+  if (H.video) media.push(`<a class="btn ghost" href="${H.video}" target="_blank" rel="noopener">${t("alv")}</a>`);
+  $("#h-media").innerHTML = media.length ? media.join("") : `<p class="muted">${t("noAnimation")}</p>`;
+  $("#h-guide").innerHTML = t("guide").map(g => `<li>${g}</li>`).join("");
   $("#h-mathhelp-card").hidden = !H.mathHelp.length;
   $("#h-mathhelp").innerHTML = H.mathHelp.map(m => `<h4>${m.title}</h4>${m.html}`).join("");
   $("#h-act-title").textContent = H.activity.title;
@@ -124,30 +169,27 @@ function renderHelp(L) {
 }
 
 // ---------- quiz ----------
-function startQuiz() {
-  $("#setup").close();
-  state.questions = makeTest(state.lesson.id, state.count);
+function newTest() {
+  state.questions = makeBilingualTest(state.lesson.id, state.count);
   state.i = 0;
   state.results = [];
   show("quiz");
   renderQuestion();
 }
 
+function startQuiz() {
+  $("#setup").close();
+  newTest();
+}
+
 function renderQuestion() {
-  const Q = state.questions[state.i];
-  const total = state.questions.length;
+  const Q = cur();
   state.attempts = 0;
   state.locked = false;
-  $("#q-lesson").textContent = `Lesson ${Q.lesson}`;
-  $("#q-count").textContent = `Question ${state.i + 1} of ${total}`;
+  state.feedback = null;
+  $("#q-progress").style.width = (state.i / state.questions.length) * 100 + "%";
   $("#q-score").textContent = `⭐ ${state.results.filter(r => r.correct).length}`;
-  $("#q-progress").style.width = (state.i / total) * 100 + "%";
-  $("#q-prompt").innerHTML = Q.prompt;
-  $("#q-visual").innerHTML = Q.visual || "";
-  $("#q-feedback").textContent = "";
-  $("#q-feedback").className = "feedback";
   $("#q-hint").hidden = true;
-  $("#q-hint").innerHTML = "💡 " + Q.hint;
   $("#q-steps").hidden = true;
   $("#hint-btn").hidden = false;
   $("#check-btn").hidden = Q.type === "choice";
@@ -156,13 +198,13 @@ function renderQuestion() {
 
   const area = $("#q-answer");
   if (Q.type === "number") {
-    area.innerHTML = `<div class="ans-box"><label for="ans-main">Answer</label>
+    area.innerHTML = `<div class="ans-box"><label for="ans-main"></label>
       <input id="ans-main" class="ans" inputmode="none" autocomplete="off" placeholder="?"></div>`;
   } else if (Q.type === "qr") {
-    area.innerHTML = `<div class="ans-box"><label for="ans-q">Quotient</label>
+    area.innerHTML = `<div class="ans-box"><label for="ans-q"></label>
         <input id="ans-q" class="ans" inputmode="none" autocomplete="off" placeholder="?"></div>
       <span class="r-label">R</span>
-      <div class="ans-box"><label for="ans-r">Remainder</label>
+      <div class="ans-box"><label for="ans-r"></label>
         <input id="ans-r" class="ans small" inputmode="none" autocomplete="off" placeholder="0"></div>`;
   } else {
     area.innerHTML = `<div class="choices">${Q.choices.map((c, k) =>
@@ -175,7 +217,37 @@ function renderQuestion() {
     inp.addEventListener("input", () => (inp.value = inp.value.replace(/[^\d]/g, "").slice(0, 6)));
   });
   state.activeInput = inputs[0] || null;
+  refreshQuestionText();
   if (state.activeInput && !matchMedia("(pointer: coarse)").matches) state.activeInput.focus();
+}
+
+// Everything on the quiz screen that depends on the language.
+function refreshQuestionText() {
+  const Q = cur();
+  $("#q-lesson").textContent = t("lesson", Q.lesson);
+  $("#q-count").textContent = t("questionOf", state.i + 1, state.questions.length);
+  $("#q-prompt").innerHTML = Q.prompt;
+  $("#q-visual").innerHTML = Q.visual || "";
+  $("#q-hint").innerHTML = "💡 " + Q.hint;
+  const labels = { "ans-main": "answer", "ans-q": "quotient", "ans-r": "remainder" };
+  Object.entries(labels).forEach(([id, key]) => {
+    const l = document.querySelector(`label[for="${id}"]`);
+    if (l) l.textContent = t(key);
+  });
+  const fb = $("#q-feedback");
+  fb.innerHTML = state.feedback ? state.feedback.text() : "";
+  fb.className = "feedback " + (state.feedback ? state.feedback.cls : "");
+  if (state.locked) {
+    const last = state.results[state.results.length - 1];
+    $("#q-steps").innerHTML = stepsHTML(Q, !last.correct);
+  }
+  $("#next-btn").textContent = state.i === state.questions.length - 1 ? t("seeScore") : t("next");
+}
+
+function setFeedback(cls, text) {
+  state.feedback = { cls, text };
+  $("#q-feedback").innerHTML = text();
+  $("#q-feedback").className = "feedback " + cls;
 }
 
 const num = v => (v.trim() === "" ? null : parseInt(v, 10));
@@ -202,25 +274,24 @@ function showAnswerText(Q, a) {
   return fmt(a);
 }
 
+const randIdx = arr => Math.floor(Math.random() * arr.length);
+
 function check(choiceIdx, choiceBtn) {
   if (state.locked) return;
-  const Q = state.questions[state.i];
+  const Q = cur();
   const a = Q.type === "choice" ? choiceIdx : readAnswer(Q);
   if (a === null) {
     const card = $(".question-card");
     card.classList.remove("shake"); void card.offsetWidth; card.classList.add("shake");
-    $("#q-feedback").textContent = "Type your answer first! ✏️";
-    $("#q-feedback").className = "feedback bad";
+    setFeedback("bad", () => t("typeFirst"));
     return;
   }
   state.attempts++;
-  const ok = isRight(Q, a);
-  const fb = $("#q-feedback");
   const inputs = document.querySelectorAll("#q-answer input");
 
-  if (ok) {
-    fb.textContent = state.attempts === 1 ? pickOne(CHEERS) : "You fixed it — great job! 👍";
-    fb.className = "feedback good";
+  if (isRight(Q, a)) {
+    const k = randIdx(t("cheers"));
+    setFeedback("good", state.attempts === 1 ? () => t("cheers")[k] : () => t("fixedIt"));
     inputs.forEach(i => i.classList.add("right"));
     if (choiceBtn) choiceBtn.classList.add("right");
     sfx.good();
@@ -234,32 +305,29 @@ function check(choiceIdx, choiceBtn) {
   if (choiceBtn) { choiceBtn.classList.add("wrong"); choiceBtn.disabled = true; }
 
   if (state.attempts < 2) {
-    fb.textContent = pickOne(RETRY);
-    fb.className = "feedback bad";
+    const k = randIdx(t("retry"));
+    setFeedback("bad", () => t("retry")[k]);
     $("#q-hint").hidden = false;
     $("#hint-btn").hidden = true;
     setTimeout(() => inputs.forEach(i => i.classList.remove("wrong")), 700);
     if (inputs[0]) { inputs[0].select(); state.activeInput = inputs[0]; }
   } else {
-    fb.innerHTML = `The answer is <b>${Q.answerText}</b>. Let's see how! 👇`;
-    fb.className = "feedback bad";
+    setFeedback("bad", () => t("theAnswerIs", cur().answerText));
     if (Q.type === "choice") document.querySelectorAll(".choice")[Q.answer].classList.add("right");
     finishQuestion(false, a);
   }
 }
 
 function finishQuestion(correct, given) {
-  const Q = state.questions[state.i];
   state.locked = true;
   state.results.push({ correct, firstTry: correct && state.attempts === 1, given });
   document.querySelectorAll("#q-answer input, .choice").forEach(el => (el.disabled = true));
-  $("#q-steps").innerHTML = stepsHTML(Q, !correct);
   $("#q-steps").hidden = false;
   $("#check-btn").hidden = true;
   $("#hint-btn").hidden = true;
   $("#keypad").hidden = true;
   $("#next-btn").hidden = false;
-  $("#next-btn").textContent = state.i === state.questions.length - 1 ? "See my score 🏁" : "Next ➜";
+  refreshQuestionText();
   $("#next-btn").focus();
   $("#q-score").textContent = `⭐ ${state.results.filter(r => r.correct).length}`;
 }
@@ -267,8 +335,8 @@ function finishQuestion(correct, given) {
 function stepsHTML(Q, withVideo) {
   const H = withVideo && helpFor(Q.lesson);
   const watch = H && H.animation
-    ? `<a class="watch-link" href="${H.animation}" target="_blank" rel="noopener">🎬 Watch the lesson ${Q.lesson} animation with a grown-up</a>` : "";
-  return `<h4>🦉 How to solve it</h4><ol>${Q.steps.map(s => `<li>${s}</li>`).join("")}</ol>${watch}`;
+    ? `<a class="watch-link" href="${H.animation}" target="_blank" rel="noopener">${t("watchAnimation", Q.lesson)}</a>` : "";
+  return `<h4>${t("howToSolve")}</h4><ol>${Q.steps.map(s => `<li>${s}</li>`).join("")}</ol>${watch}`;
 }
 
 function next() {
@@ -280,50 +348,54 @@ function next() {
   }
 }
 
-const pickOne = a => a[Math.floor(Math.random() * a.length)];
-
 // ---------- results ----------
-function showResults() {
-  const total = state.questions.length;
+function starsFor() {
   const right = state.results.filter(r => r.correct).length;
-  const pct = right / total;
-  const stars = pct >= 0.9 ? 3 : pct >= 0.7 ? 2 : pct >= 0.5 ? 1 : 0;
+  const pct = right / state.questions.length;
+  return pct >= 0.9 ? 3 : pct >= 0.7 ? 2 : pct >= 0.5 ? 1 : 0;
+}
 
+function showResults() {
+  const stars = starsFor();
   const best = loadPref("best", {});
   if (stars > (best[state.lesson.id] || 0)) { best[state.lesson.id] = stars; savePref("best", best); }
-
-  $("#r-stars").innerHTML = [0, 1, 2].map(k => `<span>${k < stars ? "⭐" : "☆"}</span>`).join("");
-  $("#r-title").textContent = ["Good try! Let's practice more! 💪", "Nice work! 👍", "Great job! 🎉", "Amazing! You're a division champion! 🏆"][stars];
-  const first = state.results.filter(r => r.firstTry).length;
-  $("#r-score").textContent = `You got ${right} out of ${total} right (${first} on the first try).`;
-
-  $("#r-review").innerHTML = state.questions.map((Q, k) => {
-    const r = state.results[k];
-    return `<div class="review-item ${r.correct ? "" : "missed"}">
-      <div class="ri-q">${k + 1}. ${Q.prompt}</div>
-      <div class="ri-a">${r.correct ? "✅" : "❌"} Your answer: ${showAnswerText(Q, r.given)}
-        ${r.correct ? "" : ` · Correct answer: <b>${Q.answerText}</b>`}</div>
-      <details ${r.correct ? "" : "open"}><summary>How to solve it</summary><div class="steps">${stepsHTML(Q, !r.correct)}</div></details>
-    </div>`;
-  }).join("");
-
+  renderResults();
   show("results");
   if (stars >= 2) { sfx.win(); burst(["🏆", "⭐", "🎉", "🌟", "🥳"], 30); }
+}
+
+function renderResults() {
+  const total = state.questions.length;
+  const right = state.results.filter(r => r.correct).length;
+  const first = state.results.filter(r => r.firstTry).length;
+  const stars = starsFor();
+  $("#r-stars").innerHTML = [0, 1, 2].map(k => `<span>${k < stars ? "⭐" : "☆"}</span>`).join("");
+  $("#r-title").textContent = t("resultTitles")[stars];
+  $("#r-score").textContent = t("resultScore", right, total, first);
+  $("#r-review").innerHTML = state.questions.map((_, k) => {
+    const Q = qAt(k), r = state.results[k];
+    return `<div class="review-item ${r.correct ? "" : "missed"}">
+      <div class="ri-q">${k + 1}. ${Q.prompt}</div>
+      <div class="ri-a">${r.correct ? "✅" : "❌"} ${t("yourAnswer")} ${showAnswerText(Q, r.given)}
+        ${r.correct ? "" : ` · ${t("correctAnswer")} <b>${Q.answerText}</b>`}</div>
+      <details ${r.correct ? "" : "open"}><summary>${t("howToSolvePlain")}</summary><div class="steps">${stepsHTML(Q, !r.correct)}</div></details>
+    </div>`;
+  }).join("");
 }
 
 // ---------- printable worksheet ----------
 function printWorksheet() {
   const L = state.lesson;
-  const qs = makeTest(L.id, state.count);
-  const title = L.id === "mix" ? L.title : `Lesson ${L.id}: ${L.title}`;
+  const qs = makeTest(L.id, state.count, state.lang);
+  const title = lessonTitle(L);
   const answerLine = Q => Q.type === "choice"
     ? `<div class="ws-choices">${Q.choices.map((c, k) => `<span>${"ABCD"[k]}) ${c}</span>`).join("")}</div>`
-    : Q.type === "qr" ? `<div class="ws-line">Quotient: ________ &nbsp; R ________</div>` : `<div class="ws-line"></div>`;
+    : Q.type === "qr" ? `<div class="ws-line">${t("wsQuotient")} ________ &nbsp; R ________</div>` : `<div class="ws-line"></div>`;
   $("#print-area").innerHTML = `
-    <div class="ws-head"><b>Name: ______________________</b><b>Date: ____________</b></div>
-    <h2>🦉 Division Quest — ${title}</h2>
+    <div class="ws-head"><b>${t("wsName")} ______________________</b><b>${t("wsDate")} ____________</b></div>
+    <h2>${t("appName")} — ${title}</h2>
     ${qs.map((Q, k) => `<div class="ws-q"><b>${k + 1}.</b> ${Q.prompt}${Q.visual || ""}${answerLine(Q)}</div>`).join("")}
-    <div class="ws-key"><h2>Answer Key — ${title}</h2>
+    <div class="ws-key"><h2>${t("answerKey")} — ${title}</h2>
       <ol>${qs.map(Q => `<li>${Q.type === "choice" ? "ABCD"[Q.answer] + ") " : ""}${Q.answerText}</li>`).join("")}</ol></div>`;
   $("#setup").close();
   setTimeout(() => window.print(), 100);
@@ -332,10 +404,11 @@ function printWorksheet() {
 // ---------- wiring ----------
 function updateSoundBtn() { $("#sound-btn").textContent = state.sound ? "🔊" : "🔇"; }
 
+$("#lang-btn").onclick = () => setLang(state.lang === "en" ? "es" : "en");
 $("#sound-btn").onclick = () => { state.sound = !state.sound; savePref("sound", state.sound); updateSoundBtn(); };
 $("#go-home").onclick = renderHome;
 $("#menu-btn").onclick = renderHome;
-$("#again-btn").onclick = () => { state.questions = makeTest(state.lesson.id, state.count); state.i = 0; state.results = []; show("quiz"); renderQuestion(); };
+$("#again-btn").onclick = newTest;
 $("#start-btn").onclick = startQuiz;
 $("#help-btn").onclick = () => { $("#setup").close(); renderHelp(state.lesson); };
 $("#help-start").onclick = () => openSetup(state.lesson);
@@ -367,5 +440,6 @@ document.addEventListener("keydown", e => {
   else if (!$("#check-btn").hidden) check();
 });
 
+applyStaticText();
 updateSoundBtn();
 renderHome();

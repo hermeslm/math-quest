@@ -16,6 +16,21 @@ const LESSON_HELP = {
     "title": "Division Tic-Tac-Toc",
     "html": "<p><b>MATERIALS</b></p> <p>Paper, Pencil, Paper Scraps, Highlighters or Pencils</p>  <p><b>ACTIVITY</b></p> <p>Draw a tic-tac-toe grid (3-by-3) on a sheet of paper. Write one of these numbers in each space, mixed up in any way: 8, 8, 8, 80, 80, 80, 800, 800, 800. Write each of these division problems on a scrap of paper: <span class=\"mth\">56 ÷ 7</span>, <span class=\"mth\">560 ÷ 7</span>, <span class=\"mth\">5,600 ÷ 7</span>, <span class=\"mth\">72 ÷ 9</span>, <span class=\"mth\">720 ÷ 9</span>, <span class=\"mth\">7,200 ÷ 9</span>, <span class=\"mth\">48 ÷ 6</span>, <span class=\"mth\">480 ÷ 6</span>, <span class=\"mth\">4,800 ÷ 6</span>. Place the scraps face down on a table and mix. Have your child take one scrap, divide, and color one space on the tic-tac-toe grid for the quotient. Now you take one scrap, divide, and mark one space with your color. Continue until one of you wins tic-tac-toe, with 3 in a row across, down, or diagonally. Draw a clean grid with the same numbers and play again.</p>"
    }
+  },
+  "es": {
+   "page": "https://media.pk12ls.com/curriculum/math/enVisionFlorida_2023/family_engage/g04_t05_l01_es.html",
+   "animation": "https://us-school.pk12ls.com/school/88314416-2146-4d81-bdf4-cac73f88df88/A0678260/player.html",
+   "video": "https://us-school.pk12ls.com/school/8effaab0-7dce-4018-9373-a58184e9fc8b/A0675596/player.html",
+   "mathHelp": [
+    {
+     "title": "Ejemplo de Práctica adicional 1",
+     "html": "<p>Usa operaciones básicas, patrones o el cálculo mental para dividir.</p> <p><img src=\"assets/lessons/flfeg4t5l1en_section_2_sub_1_text_01.png\" alt=\"25 dividido por 5 es igual a 5. 250 dividido por 5 es igual a 50. 2,500 dividido por 5 es igual a 500.\"></p> <p><span class=\"mth\">25 ÷ 5 = 5</span> porque <span class=\"mth\">5 × 5 = 25</span>.</p> <p><span class=\"mth\">250 ÷ 5 = 25</span> decenas <span class=\"mth\"> ÷ 5 = 5</span> decenas <span class=\"mth\"> = 50</span>.</p> <p><span class=\"mth\">2,500 ÷ 5 = 25</span> centenas <span class=\"mth\"> ÷ 5 = 5</span> centenas <span class=\"mth\"> = 500</span>.</p>"
+    }
+   ],
+   "activity": {
+    "title": "Tres en fila para dividir",
+    "html": "<p><b>MATERIALES</b></p> <p>Papel, lápiz, pedazos de papel borrador, resaltadores o lápices</p>  <p><b>ACTIVIDAD</b></p> <p>En una hoja de papel, dibuje una cuadrícula de tres en fila (3 por 3). Escriba los siguientes números, uno en cada espacio, en cualquier orden: 8, 8, 8, 80, 80, 80, 800, 800, 800. En cada pedazo de papel borrador, escriba uno de estos problemas de división: <span class=\"mth\">56 ÷ 7</span>, <span class=\"mth\">560 ÷ 7</span>, <span class=\"mth\">5,600 ÷ 7</span>, <span class=\"mth\">72 ÷ 9</span>, <span class=\"mth\">720 ÷ 9</span>, <span class=\"mth\">7,200 ÷ 9</span>, <span class=\"mth\">48 ÷ 6</span>, <span class=\"mth\">480 ÷ 6</span>, <span class=\"mth\">4,800 ÷ 6</span>. Coloque los papeles boca abajo sobre una mesa y mézclelos. Pida a su hijo(a) que tome uno, que divida y que coloree el espacio de la cuadrícula de tres en fila que muestra el cociente. Ahora usted tome un papel y marque un espacio con su color. Continúe con la actividad hasta que uno de ustedes forme tres en fila (puede ser en forma horizontal, vertical o diagonal). Dibuje otra cuadrícula con los mismos números y vuelvan a jugar.</p>"
+   }
   }
  },
  "5-2": {
@@ -32,6 +47,21 @@ const LESSON_HELP = {
    "activity": {
     "title": "Read Every Day",
     "html": "<p><b>MATERIALS</b></p> <p>Books</p>  <p><b>ACTIVITY</b></p> <p>Have your child find the total number of pages in a book. Now ask your child, “If you want to read this whole book in a week, about the same number of pages every day, about how many pages would you read each day?” For example, if a book has 214 pages, your child will estimate the quotient of <span class=\"mth\">214 ÷ 7</span> like this: 214 is close to 210, and <span class=\"mth\">210 ÷ 7 = 30</span>, so you would read about 30 pages each day. Choose another book and repeat.</p>"
+   }
+  },
+  "es": {
+   "page": "https://media.pk12ls.com/curriculum/math/enVisionFlorida_2023/family_engage/g04_t05_l02_es.html",
+   "animation": "https://us-school.pk12ls.com/school/8a17e04d-c907-484d-946e-a8ca483e1a44/A0678261/player.html",
+   "video": "https://us-school.pk12ls.com/school/fd357779-e5a3-4530-9794-5e8e7bd7abba/A0675600/player.html",
+   "mathHelp": [
+    {
+     "title": "Ejemplo de Práctica adicional 1",
+     "html": "<p>Estima el cociente. Muestra tu trabajo.</p> <p><img src=\"assets/lessons/flfeg4t5l2en_section_2_sub_1_text_01_sp.png\" alt=\"165 dividido por 4. aproximadamente 40. 160 dividido por 4 es igual a 40.\"></p> <p>Usa 160 para 165 porque se puede dividir más fácilmente por 4. 160 es mejor opción que el 170, que no se divide fácilmente por 4.</p>"
+    }
+   ],
+   "activity": {
+    "title": "Lectura diaria",
+    "html": "<p><b>MATERIALES</b></p> <p>Libros</p>  <p><b>ACTIVIDAD</b></p> <p>Pida a su hijo(a) que halle la cantidad total de páginas que tiene un libro. Ahora, pregúntele: “Si quisieras leer este libro entero en una semana, ¿aproximadamente cuántas páginas deberías leer cada día?”. Por ejemplo, si un libro tiene 214 páginas, su hijo(a) estimará el cociente de <span class=\"mth\">214 ÷ 7</span> así: 214 está cerca de 210, y <span class=\"mth\">210 ÷ 7 = 30;</span> por tanto, debería leer aproximadamente 30 páginas cada día. Escoja otro libro y repita la actividad.</p>"
    }
   }
  },
@@ -50,6 +80,21 @@ const LESSON_HELP = {
     "title": "What’s Wrong?",
     "html": "<p><b>MATERIALS</b></p> <p>Paper, Pencil</p>  <p><b>ACTIVITY</b></p> <p>Fold a sheet of paper into 6 sections and write one of these equations in each section. Ask your child to explain what is wrong with each equation.</p>  <p><span class=\"mth\">45 ÷ 8 = 5</span> Remainder <span class=\"mth\">9</span> (remainder cannot be larger than the divisor).</p> <p><span class=\"mth\">45 ÷ 8 = 5</span> Remainder <span class=\"mth\">3</span> (<span class=\"mth\">8 × 5 = 40</span>, so the remainder is 5, not 3).</p> <p><span class=\"mth\">27 ÷ 1 = 27</span> Remainder <span class=\"mth\">1</span> (any number divided by 1 has no remainder).</p> <p><span class=\"mth\">13 ÷ 6 = 2</span> (<span class=\"mth\">6 × 2 = 12</span>, so there should be a remainder of 1).</p> <p><span class=\"mth\">4 ÷ 40 = 10</span> (should be <span class=\"mth\">40 ÷ 4 = 10</span>).</p> <p><span class=\"mth\">36 ÷ 6 = 5</span> Remainder <span class=\"mth\">6</span> (6 is both the remainder and the divisor, so one more group can be made: <span class=\"mth\">36 ÷ 6 = 6</span>).</p>"
    }
+  },
+  "es": {
+   "page": "https://media.pk12ls.com/curriculum/math/enVisionFlorida_2023/family_engage/g04_t05_l03_es.html",
+   "animation": "https://us-school.pk12ls.com/school/0674ff09-2b5f-46fa-b61c-c1e03866aaba/A0782852/player.html",
+   "video": "https://us-school.pk12ls.com/school/1d77a8fb-434f-4f84-adce-b96f5f8d5773/A0777249/player.html",
+   "mathHelp": [
+    {
+     "title": "Ejemplo de Práctica adicional 1",
+     "html": "<p>Halla el cociente. Escribe el cociente con el residuo de dos maneras diferentes.</p> <p><img src=\"assets/lessons/flfeg4t5l3en_section_2_sub_1_text_01.png\" alt=\"22 dividido por 5 es igual a 4 erre 2, que es 4 y dos quintos.\"></p> <p>Cuando se dividen 22 elementos en 5 grupos iguales, hay 4 elementos en cada grupo con 2 que sobran. Por tanto, el cociente es 4 con un residuo de 2.</p>  <p>Para escribir el residuo 2 como una fracción, usa el divisor 5. Conserva el número entero 4. Por tanto, el cociente es <span class=\"mth\">4<span class=\"frac\"><sup>2</sup>&frasl;<sub>5</sub></span></span>.</p>"
+    }
+   ],
+   "activity": {
+    "title": "¿Dónde está el error?",
+    "html": "<p><b>MATERIALES</b></p> <p>Papel, lápiz</p>  <p><b>ACTIVIDAD</b></p> <p>Doble una hoja de papel en 6 secciones y escriba cada una de las siguientes ecuaciones en cada sección. Pida a su hijo(a) que explique dónde está el error en cada ecuación.</p>  <p><span class=\"mth\">45 ÷ 8 = 5</span>, con un residuo de <span class=\"mth\">9</span> (el residuo no puede ser mayor que el divisor).</p> <p><span class=\"mth\">45 ÷ 8 = 5,</span> con un residuo de<span class=\"mth\">3</span> (<span class=\"mth\">8 × 5 = 40</span>; por tanto, el residuo es 5, no 3).</p> <p><span class=\"mth\">27 ÷ 1 = 27,</span> con un residuo de<span class=\"mth\">1</span> (cualquier número dividido por 1 no tiene residuo).</p> <p><span class=\"mth\">13 ÷ 6 = 2</span> (<span class=\"mth\">6 × 2 = 12</span>; por tanto, debería haber un residuo de 1).</p> <p><span class=\"mth\">4 ÷ 40 = 10</span> (debería ser <span class=\"mth\">40 ÷ 4 = 10</span>).</p> <p><span class=\"mth\">36 ÷ 6 = 5,</span> con un residuo de<span class=\"mth\">6</span> (6 es el residuo y también el divisor; por tanto, se puede formar un grupo más: <span class=\"mth\">36 ÷ 6 = 6</span>).</p>"
+   }
   }
  },
  "5-4": {
@@ -66,6 +111,21 @@ const LESSON_HELP = {
    "activity": {
     "title": "Penny Predictions",
     "html": "<p><b>MATERIALS</b></p> <p>Pennies, Paper, Pencil</p>  <p><b>ACTIVITY</b></p> <p>Pour a pile of pennies on a table (between 50 and 100). Tell your child that you would like to make stacks of 10 pennies to exchange them for dimes. Ask your child to look at the pile and predict the number of stacks of 10 they can make. Your child might guess there are about 50 pennies and say, “I think there will be 5 stacks of 10 pennies.” Now ask your child to stack the pennies into 10s, check their prediction, and find the total number of pennies. Help your child write a division equation for the pennies. For example, if there are 64 pennies in all, there will be 6 stacks of 10 with 4 pennies left over, and the equation is <span class=\"mth\">64 ÷ 10 = 6</span> Remainder <span class=\"mth\">4</span>. Point out that 64 is equal to 6 tens and 4 ones. Likewise, 64 pennies equal 6 dimes and 4 pennies. Repeat with a different pile of pennies. You, along with your child, may also want to make a prediction before the stacks are made.</p>"
+   }
+  },
+  "es": {
+   "page": "https://media.pk12ls.com/curriculum/math/enVisionFlorida_2023/family_engage/g04_t05_l04_es.html",
+   "animation": "https://us-school.pk12ls.com/school/5d38bb4d-e3a7-4f5f-b07d-2affbed9cd11/A0782853/player.html",
+   "video": "https://us-school.pk12ls.com/school/829497b9-6951-40a7-b38a-abdd0b3d164c/A0675612/player.html",
+   "mathHelp": [
+    {
+     "title": "Ejemplo de Práctica adicional 1",
+     "html": "<p>Usa cocientes parciales para dividir. Puedes usar fichas o hacer dibujos como ayuda.</p> <p><img src=\"assets/lessons/flfeg4t5l4en_section_2_sub_1_text_01.png\" alt=\"92 dividido por 4.\"></p> <p>Pregunta: ¿Cuántos 4 hay en 92? Prueba con 20.</p> <p><span class=\"mth\">4 × 20 = 80</span>, y sobran <span class=\"mth\">92 - 80 = 12</span>.</p>  <p>Luego: ¿Cuántos 4 hay en 12? 3.</p> <p><span class=\"mth\">4 × 3 = 12</span>; por tanto, no hay residuo.</p>  <p>Los cocientes parciales son 20 y 3.</p> <p>Súmalos para hallar el cociente: <span class=\"mth\">20 + 3 = 23</span>. </p> <p>Por tanto, <span class=\"mth\">92 ÷ 4 = 23</span>.</p>"
+    }
+   ],
+   "activity": {
+    "title": "Predicciones con centavos",
+    "html": "<p><b>MATERIALES</b></p> <p>Monedas de 1¢, papel, lápiz</p>  <p><b>ACTIVIDAD</b></p> <p>Vuelque una pila de monedas de 1¢ sobre una mesa (entre 50 y 100). Diga a su hijo(a) que quisiera formar pilas de 10 monedas de 1¢ para intercambiarlas por monedas de 10¢. Pida a su hijo(a) que observe la pila grande y que prediga la cantidad de pilas de 10 que puede formar. Su hijo(a) podría suponer que hay aproximadamente 50 monedas de 1¢ y decir: “Pienso que habrá 5 pilas de 10 monedas de 1¢”. Ahora, pídale que apile las monedas de 1¢ de a 10, compruebe su predicción y halle la cantidad total de monedas de 1¢ que hay. Ayude a su hijo(a) a escribir la ecuación de división para las monedas. Por ejemplo, si hay 64 monedas de 1¢ en total, habrá 6 pilas de 10 y sobrarán 4 monedas, y la ecuación es <span class=\"mth\">64 ÷ 10 = 6,</span>con un residuo de <span class=\"mth\">4</span>. Señale que 64 es igual a 6 decenas y 4 unidades. De la misma manera, 64 monedas de 1¢ es igual a 6 monedas de 10¢ y 4 monedas de 1¢. Repita la actividad con una pila diferente de monedas de 1¢. Usted y su hijo(a) también podrían hacer una predicción antes de formar las pilas.</p>"
    }
   }
  },
@@ -84,6 +144,21 @@ const LESSON_HELP = {
     "title": "At Least",
     "html": "<p><b>MATERIALS</b></p> <p>Playing Cards</p>  <p><b>ACTIVITY</b></p> <p>Remove all the 10s, Jacks, Queens, and Kings from the deck, and let Ace equal 1. Shuffle the deck. Deal 4 cards each to you and your child and lay them face up to make 4-digit numbers. Now flip over the top card on the pile; this card will be the divisor for one round of the game. Here is an example. Your child makes the number 6,179 with a divisor of 8, so their division problem is <span class=\"mth\">6,179 ÷ 8</span>. Your child says, “There are <b>at least 700 eights</b> in six thousand one hundred seventy-nine.” (700 eights is five thousand six hundred, while 800 eights is six-thousand four hundred—too high). You make the number 4,713 and say, “There are <b>at least 500 eights</b> in four thousand seven hundred thirteen.” (500 eights is four thousand, while 600 eights is four thousand eight hundred—too high). Your child wins this round because 700 is greater than 500. Continue to play until one person has won five rounds.</p>"
    }
+  },
+  "es": {
+   "page": "https://media.pk12ls.com/curriculum/math/enVisionFlorida_2023/family_engage/g04_t05_l05_es.html",
+   "animation": "https://us-school.pk12ls.com/school/72abd617-3ae4-474e-8bf0-8b7754da99d6/A0678265/player.html",
+   "video": "https://us-school.pk12ls.com/school/e4ff5d2c-39c2-47fb-9804-3a1c98defd68/A0675616/player.html",
+   "mathHelp": [
+    {
+     "title": "Ejemplo de Práctica adicional 1",
+     "html": "<p>Usa cocientes parciales para dividir.</p> <p><img src=\"assets/lessons/flfeg4t5l5en_section_2_sub_1_text_01.png\" alt=\"126 dividido por 9.\"></p> <p>Pregunta: ¿Cuántos 9 hay en 120? Prueba con 10.</p> <p><span class=\"mth\">9 × 10 = 90</span>, y sobran <span class=\"mth\">126 - 90 = 36</span>.</p>  <p>Luego: ¿Cuántos 9 hay en 36? 4.</p> <p><span class=\"mth\">9 × 4 = 36</span>; por tanto, no hay residuo.</p>  <p>Los cocientes parciales son 10 y 4.</p> <p>Súmalos para hallar el cociente: <span class=\"mth\">10 + 4 = 14</span>. </p> <p>Por tanto, <span class=\"mth\">126 ÷ 9 = 14</span>.</p>"
+    }
+   ],
+   "activity": {
+    "title": "Al menos",
+    "html": "<p><b>MATERIALES</b></p> <p>Cartas de juego</p>  <p><b>ACTIVIDAD</b></p> <p>Quite de la baraja todos los 10, los <i>jacks</i>, las reinas y los reyes. El as será el 1. Mezcle las cartas. Reparta 4 cartas a cada jugador y pónganlas boca arriba para formar un número de 4 dígitos. Ahora, dé vuelta la primera carta de la pila; esta carta será el divisor durante una ronda del juego. Aquí hay un ejemplo. Su hijo(a) forma el número 6,179 con un divisor de 8; por tanto, su problema de división es <span class=\"mth\">6,179 ÷ 8</span>. Su hijo(a) dice: “Hay <b>al menos 700 ochos</b> en seis mil ciento setenta y nueve” (700 ochos es cinco mil seiscientos, mientras que 800 ochos es seis mil cuatrocientos —demasiado alto). Usted forma el número 4,713 y dice: “Hay <b>al menos 500 ochos </b>en cuatro mil setecientos trece” (500 ochos es cuatro mil, mientras que 600 ochos es cuatro mil ochocientos —demasiado alto). Su hijo(a) gana esta ronda porque 700 es mayor que 500. Continúe con el juego hasta que uno de ustedes haya ganado cinco rondas.</p>"
+   }
   }
  },
  "5-6": {
@@ -100,6 +175,21 @@ const LESSON_HELP = {
    "activity": {
     "title": "Bean Bunches",
     "html": "<p><b>MATERIALS</b></p> <p>Dry Beans, Cups, Paper, Pencil</p>  <p><b>ACTIVITY</b></p> <p>Put a handful of beans into one cup and put between 1 and 10 beans in a second cup. Have your child count the number of beans in each cup. Your child will “act out” the division of these two numbers by making equal groups of beans. The number of beans in the second cup will be the number of groups they make. Here is an example. One cup has 41 beans, and the second cup has 4 beans, so the division problem is <span class=\"mth\">41 ÷ 4</span>. Ask your child to divide by arranging the 41 beans into 4 equal groups. Then have your child write the division equation, including any remainder, and explain what it means. In this case the equation is <span class=\"mth\">41 ÷ 4 = 10</span> Remainder <span class=\"mth\">1</span>, meaning that with 41 beans you can make 4 groups of 10 beans and 1 bean is left over. Repeat several times with different amounts of beans in each cup.</p>"
+   }
+  },
+  "es": {
+   "page": "https://media.pk12ls.com/curriculum/math/enVisionFlorida_2023/family_engage/g04_t05_l06_es.html",
+   "animation": "https://us-school.pk12ls.com/school/05ec82d3-13fb-4d77-b7c7-4ac53523c6d8/A0678266/player.html",
+   "video": "https://us-school.pk12ls.com/school/e4ff5d2c-39c2-47fb-9804-3a1c98defd68/A0675616/player.html",
+   "mathHelp": [
+    {
+     "title": "Ejemplo de Práctica adicional 1",
+     "html": "<p>Usa bloques de valor de posición o un dibujo para dividir. Anota los residuos.</p> <p><img src=\"assets/lessons/flfeg4t5l6en_section_2_sub_1_text_01.png\" alt=\"66 dividido por 4 es igual a 16 con un residuo de 2. 4 grupos contienen una decena y 6 unidades cada uno. hay 2 unidades que no están en ningún grupo.\"></p> <p>El dibujo muestra 66 dividido en 4 grupos iguales.</p> <p>Cada grupo tiene 1 decena y 6 unidades, que es igual a 16.</p> <p>Sobran 2 unidades; por tanto, el residuo es 2.</p>"
+    }
+   ],
+   "activity": {
+    "title": "Grupos de frijoles",
+    "html": "<p><b>MATERIALES</b></p> <p>Frijoles secos, tazas, papel, lápiz</p>  <p><b>ACTIVIDAD</b></p> <p>Coloque un puñado de frijoles en una taza y coloque entre 1 y 10 frijoles en una segunda taza. Pida a su hijo(a) que cuente la cantidad de frijoles que hay en cada taza. Su hijo(a) formará grupos iguales de frijoles para “representar” la división de estos dos números. La cantidad de frijoles que hay en la segunda taza será la cantidad de grupos que formará. Aquí hay un ejemplo. En una taza hay 41 frijoles y en la segunda taza hay 4 frijoles; por tanto, el problema de división es <span class=\"mth\">41 ÷ 4</span>. Pida a su hijo(a) que ordene los 41 frijoles en 4 grupos iguales para dividir. Luego, pídale que escriba la ecuación de división, incluido el residuo (si hay), y que explique lo que significa. En este caso, la ecuación es <span class=\"mth\">41 ÷ 4 = 10</span>, con un residuo de <span class=\"mth\">1</span>, lo que significa que con 41 frijoles se pueden formar 4 grupos de 10 y sobra 1 frijol. Repita la actividad varias veces con diferentes cantidades de frijoles en cada taza.</p>"
    }
   }
  },
@@ -118,6 +208,21 @@ const LESSON_HELP = {
     "title": "Division Snacks",
     "html": "<p><b>MATERIALS</b></p> <p>Crackers or Cereal, Pretzel Sticks, Small Berries or Raisins or Chocolate Chips, Paper, Pencil</p>  <p><b>ACTIVITY</b></p> <p>Gather snack items for your child to use to show division. You will need 3 different types of snacks, such as crackers for hundreds, pretzel sticks for tens, and berries for ones. Write the division problem <span class=\"mth\">86 ÷ 3</span> and draw 3 big circles on the paper for the 3 groups. First ask your child to estimate the quotient (<span class=\"mth\">90 ÷ 3 = 30</span>). Work together to start with the number 86 as shown by the snacks (8 pretzel sticks and 6 berries). Now have your child place the snacks into 3 equal groups, starting with pretzel sticks. There will be 2 left over. Let your child discover the need to exchange 1 pretzel stick (1 ten) with 10 berries (10 ones), twice! The end result will show 3 groups of snacks, each group will have 2 pretzel sticks and 8 berries, and there will be 2 berries left over. Have your child write the division equation shown by the snacks: <span class=\"mth\">86 ÷ 3 = 28</span> Remainder <span class=\"mth\">2</span>. Compare with their estimate to see if the answer is reasonable. Repeat with <span class=\"mth\">105 ÷ 9</span> and <span class=\"mth\">210 ÷ 6</span>.</p>"
    }
+  },
+  "es": {
+   "page": "https://media.pk12ls.com/curriculum/math/enVisionFlorida_2023/family_engage/g04_t05_l07_es.html",
+   "animation": "https://us-school.pk12ls.com/school/77c5fd85-0d21-4eb8-8a3f-e341733ddeae/A0782730/player.html",
+   "video": "https://us-school.pk12ls.com/school/f078fe67-12d1-4f3a-a1db-2e430d6bb7b8/A0675624/player.html",
+   "mathHelp": [
+    {
+     "title": "Ejemplo de Práctica adicional 1",
+     "html": "<p>Divide. Usa bloques de valor de posición o haz dibujos si es necesario.</p> <p><img src=\"assets/lessons/flfeg4t5l7en_section_2_sub_1_text_01.png\" alt=\"334 dividido por 4. 334 menos 320 es igual a 14. 14 menos 12 es igual a 2. la respuesta es 83 con un residuo de 2.\"></p> <p>Hay 3 centenas en 334. No dividas 3 centenas en 4 grupos iguales, porque 3 es menor que 4. En cambio, piensa en 334 como 33 decenas y 4 unidades.</p>  <p>Pregunta: ¿Cuántos 4 hay en 33 decenas? Prueba con 8 decenas.</p> <p><span class=\"mth\">4 × 80 = 320</span>, y sobran <span class=\"mth\">334 - 320 = 14</span>.</p>  <p>Luego: ¿Cuántos 4 hay en 14? Prueba con 3.</p> <p><span class=\"mth\">4 × 3 = 12</span>, y sobran <span class=\"mth\">14 - 12 = 2</span> como residuo.</p>  <p>Escribe el cociente: <span class=\"mth\">334 ÷ 4 = 83</span>, con un residuo de <span class=\"mth\">2</span>.</p>"
+    }
+   ],
+   "activity": {
+    "title": "División con bocaditos",
+    "html": "<p><b>MATERIALES</b></p> <p>Galletas o cereales, pretzels, bayas pequeñas o pasas o chispas de chocolate, papel, lápiz</p>  <p><b>ACTIVIDAD</b></p> <p>Consiga algunos bocaditos que su hijo(a) usará para mostrar la división. Necesitará 3 tipos diferentes de bocaditos, por ejemplo, galletas para las centenas, pretzels para las decenas y bayas para las unidades. Escriba el problema de división <span class=\"mth\">86 ÷ 3</span> y dibuje 3 círculos grandes en un papel para representar los 3 grupos. Primero, pida a su hijo(a) que estime el cociente (<span class=\"mth\">90 ÷ 3 = 30</span>). Trabajen juntos para comenzar con el número 86 como muestran los bocaditos (8 pretzels y 6 bayas). Ahora, pida a su hijo(a) que coloque los bocaditos en 3 grupos iguales, comenzando con los pretzels. Sobrarán 2. Permita que su hijo(a) descubra la necesidad de intercambiar 1 pretzel (1 decena) por 10 bayas (10 unidades), ¡dos veces! El resultado final mostrará 3 grupos de bocaditos, en cada grupo habrá 2 pretzels y 8 bayas, y sobrarán 2 bayas. Pida a su hijo(a) que escriba la ecuación de división que muestran los bocaditos: <span class=\"mth\">86 ÷ 3 = 28</span>, con un residuo de <span class=\"mth\">2</span>. Compare el resultado con su estimación para ver si la respuesta es razonable. Repita la actividad con <span class=\"mth\">105 ÷ 9</span> y con <span class=\"mth\">210 ÷ 6</span>.</p>"
+   }
   }
  },
  "5-8": {
@@ -134,6 +239,21 @@ const LESSON_HELP = {
    "activity": {
     "title": "Division Stories",
     "html": "<p><b>MATERIALS</b></p> <p>Paper, Pencil</p>  <p><b>ACTIVITY</b></p> <p>Write a division problem, such as <span class=\"mth\">46 ÷ 8</span>, and help your child invent a story that goes along with it. Here is an example for <span class=\"mth\">46 ÷ 8</span>. There are 46 balls of cookie dough. You can fit 8 balls on each baking sheet. How many baking sheets will you need? Have your child describe their method for solving the problem, do the division, and explain the result: <span class=\"mth\">46 ÷ 8 = 5</span> Remainder <span class=\"mth\">6</span>, so you will need 6 baking sheets for the 46 dough balls. Repeat several times with other division problems.</p>"
+   }
+  },
+  "es": {
+   "page": "https://media.pk12ls.com/curriculum/math/enVisionFlorida_2023/family_engage/g04_t05_l08_es.html",
+   "animation": "https://us-school.pk12ls.com/school/c91bf278-d48a-47c1-8d23-62ebdbdef37e/A0782731/player.html",
+   "video": "https://us-school.pk12ls.com/school/13491b6d-fb8b-4c44-ad8f-47bb1904aebc/A0675628/player.html",
+   "mathHelp": [
+    {
+     "title": "Ejemplo de Práctica adicional 1",
+     "html": "<p>Escoge un método para hallar el cociente. Debes estar listo para explicar tu elección.</p> <p><img src=\"assets/lessons/flfeg4t5l8en_section_2_sub_1_text_01.png\" alt=\"296 dividido por 4. 296 menos 280 es igual a 16. 16 menos 16 es igual a 0. la respuesta: 74.\"></p> <p>Hay 2 centenas en 296. No dividas 2 centenas en 4 grupos iguales, porque 2 es menor que 4. En cambio, piensa en 296 como 29 decenas y 6 unidades.</p>  <p>Pregunta: ¿Cuántos 4 hay en 29 decenas? Prueba con 7 decenas.</p> <p><span class=\"mth\">4 × 7</span> decenas <span class=\"mth\"> = 280</span>, y sobran <span class=\"mth\">296 - 280 = 16</span>.</p>  <p>Luego: ¿Cuántos 4 hay en 4 16? 4.</p> <p><span class=\"mth\">4 × 4 = 16</span>, y <span class=\"mth\">16 - 16 = 0</span>; por tanto, no hay residuo.</p>  <p>Escribe el cociente: <span class=\"mth\">296 ÷ 4 = 74</span>.</p>"
+    }
+   ],
+   "activity": {
+    "title": "Cuentos de división",
+    "html": "<p><b>MATERIALES</b></p> <p>Papel, lápiz</p>  <p><b>ACTIVIDAD</b></p> <p>Escriba un problema de división, como <span class=\"mth\">46 ÷ 8</span>, y ayude a su hijo(a) a inventar un cuento para ese problema. Aquí hay un ejemplo para <span class=\"mth\">46 ÷ 8</span>. “Hay 46 bolas de pasta para galletas. En cada bandeja para hornear caben 8 bolas. ¿Cuántas bandejas para hornear necesitarás?”. Pida a su hijo(a) que describa su método para resolver el problema, que haga la división y que explique el resultado: <span class=\"mth\">46 ÷ 8 = 5</span>; con un residuo de <span class=\"mth\">6</span>; por tanto, necesitarás 6 bandejas para las 46 bolas. Repita la actividad varias veces con otros problemas de división.</p>"
    }
   }
  },
@@ -152,6 +272,21 @@ const LESSON_HELP = {
     "title": "Division Memory Game",
     "html": "<p><b>MATERIALS</b></p> <p>Index Cards, Marker</p>  <p><b>ACTIVITY</b></p> <p>Create a memory game and play it with your child. Make 6 cards with these numbers: 9, 90, 4, 40, 6, 60. Make 6 cards with these division problems: <span class=\"mth\">36 ÷ 4</span>, <span class=\"mth\">360 ÷ 4</span>, <span class=\"mth\">32 ÷ 8</span>, <span class=\"mth\">320 ÷ 8</span>, <span class=\"mth\">24 ÷ 4</span>, <span class=\"mth\">240 ÷ 4</span>. Include your child in writing the cards. Look at all the cards and practice pointing to matches. For example, “<span class=\"mth\">360 ÷ 4</span>” and “<span class=\"mth\">90</span>” match because <span class=\"mth\">360 ÷ 4</span> equals <span class=\"mth\">90</span>. The cards “<span class=\"mth\">320 ÷ 8</span>” and “<span class=\"mth\">6</span>” do not match because <span class=\"mth\">320 ÷ 8</span> does not equal <span class=\"mth\">6</span>. Now you are ready to play. Mix all the cards and place them face down on a table in a 3-by-4 array. The first player turns over two cards. If the two cards match, the player takes the pair and continues turning over two cards to make more matches. If the cards do not match, place them face down again and the player’s turn ends. The next player turns over two cards, and play continues until the last match is found. The player with the most cards at the end wins. Mix and play again.</p>"
    }
+  },
+  "es": {
+   "page": "https://media.pk12ls.com/curriculum/math/enVisionFlorida_2023/family_engage/g04_t05_l09_es.html",
+   "animation": "https://us-school.pk12ls.com/school/bc187bc0-4f2b-4268-babc-108325576432/A0782732/player.html",
+   "video": "https://us-school.pk12ls.com/school/9ec7d2b3-2246-4dc8-8ddb-91088effc7a3/A0777251/player.html",
+   "mathHelp": [
+    {
+     "title": "Ejemplo de Práctica adicional 1",
+     "html": "<p>Usa operaciones básicas y el valor de posición para hallar los cocientes.</p> <p><img src=\"assets/lessons/flfeg4t5l9en_section_2_sub_1_text_01.png\" alt=\"45 dividido por 5 es igual a 9. 450 dividido por 50 es igual a 9. 4,500 dividido por 50 es igual a 90.\"></p> <p><span class=\"mth\">45 ÷ 5 = 9</span>, porque <span class=\"mth\">5 × 9 = 45</span>.</p> <p><span class=\"mth\">450 ÷ 50 = 45</span> decenas <span class=\"mth\"> ÷ 5</span> decenas <span class=\"mth\"> = 9</span>. Comprueba: <span class=\"mth\">50 × 9 = 450</span>.</p> <p><span class=\"mth\">4,500 ÷ 50 = 450</span> decenas <span class=\"mth\"> ÷ 5</span> decenas <span class=\"mth\"> = 90</span>. Comprueba: <span class=\"mth\">50 × 90 = 4,500</span>.</p>"
+    }
+   ],
+   "activity": {
+    "title": "Juego de memoria para dividir",
+    "html": "<p><b>MATERIALES</b></p> <p>Tarjetas de fichero, marcador</p>  <p><b>ACTIVIDAD</b></p> <p>Cree un juego de memoria y juéguelo con su hijo(a). Cree 6 tarjetas con estos números: 9, 90, 4, 40, 6 y 60. Cree 6 tarjetas con estos problemas de división: <span class=\"mth\">36 ÷ 4</span>, <span class=\"mth\">360 ÷ 4</span>, <span class=\"mth\">32 ÷ 8</span>, <span class=\"mth\">320 ÷ 8</span>, <span class=\"mth\">24 ÷ 4</span> y <span class=\"mth\">240 ÷ 4</span>. Pida a su hijo(a) que participe en la redacción de las tarjetas. Observe las tarjetas y practique cómo señalar las que se emparejan. Por ejemplo, las tarjetas “<span class=\"mth\">360 ÷ 4</span>” y “<span class=\"mth\">90</span>” se emparejan, porque <span class=\"mth\">360 ÷ 4</span> es igual a <span class=\"mth\">90</span>. Las tarjetas “<span class=\"mth\">320 ÷ 8</span>” y “<span class=\"mth\">6</span>” no se emparejan, porque <span class=\"mth\">320 ÷ 8</span> no es igual a <span class=\"mth\">6</span>. Ya están listos para jugar. Mezcle todas las tarjetas y colóquelas boca abajo sobre una mesa. Forme con ellas una matriz de 3 por 4. El primer jugador da vuelta dos tarjetas. Si las dos tarjetas se emparejan, el jugador se lleva el par y continúa dando vuelta de a dos tarjetas a la vez para formar más pares. Si las tarjetas no se emparejan, las vuelve a colocar boca abajo y su turno finaliza. El siguiente jugador da vuelta dos tarjetas y el juego continúa hasta que hallen el último par. El jugador que tenga la mayor cantidad de tarjetas al final del juego es el ganador. Mezcle las tarjetas y vuelvan a jugar.</p>"
+   }
   }
  },
  "5-10": {
@@ -169,6 +304,21 @@ const LESSON_HELP = {
     "title": "Calculator Check",
     "html": "<p><b>MATERIALS</b></p> <p>Calculator, Paper, Pencil</p>  <p><b>ACTIVITY</b></p> <p>Ask your child to estimate the quotient of <span class=\"mth\">1,358 ÷ 7</span>. They can use rounding or compatible numbers. Your child might say that 1,358 is close to 1,400, and <span class=\"mth\">1,400 ÷ 7 = 200</span>. Now, use a calculator to find the exact quotient: <span class=\"mth\">1,358 ÷ 7 = 194</span>. Ask your child to compare this answer with their estimate: 194 is close to 200. The estimate helped you know that the answer is reasonable. If the answer is not close to the estimate, try again. Repeat with other division problems, including these.</p>  <p><span class=\"mth\">4,765 ÷ 4 = ?</span></p> <p><span class=\"mth\">7,128 ÷ 10 = ?</span></p> <p><span class=\"mth\">2,898 ÷ 9 = ?</span></p> <p><span class=\"mth\">4,745 ÷ 12 = ?</span></p>"
    }
+  },
+  "es": {
+   "page": "https://media.pk12ls.com/curriculum/math/enVisionFlorida_2023/family_engage/g04_t05_l10_es.html",
+   "animation": "https://us-school.pk12ls.com/school/758ad621-ee6b-4ab0-821d-772ab085ba13/A0782733/player.html",
+   "video": "https://us-school.pk12ls.com/school/46159494-eaa2-4ce8-b595-dcfef94c6bca/A0777252/player.html",
+   "mathHelp": [
+    {
+     "title": "Ejemplo de Práctica adicional 1",
+     "html": "<p>Redondea para hacer una estimación.</p> <p><img src=\"assets/lessons/flfeg4t5l10en_section_2_sub_1_text_01.png\" alt=\"215 dividido por 43. 200 dividido por 40 es igual a 5. una flecha apunta a 215 a 200 y de 43 a 40.\"></p> <p>215 se redondea a 200, y 43 se redondea a 40.</p>  <p>Divide los números redondeados:</p> <p><span class=\"mth\">200 ÷ 40 = 20</span> decenas <span class=\"mth\"> ÷ 4</span> decenas<span class=\"mth\"> = 5</span>.</p> <p>Comprueba: <span class=\"mth\">40 × 5 = 200</span>.</p>"
+    }
+   ],
+   "activity": {
+    "title": "Comprobar con la calculadora",
+    "html": "<p><b>MATERIALES</b></p> <p>Calculadora, papel, lápiz</p>  <p><b>ACTIVIDAD</b></p> <p>Pida a su hijo(a) que estime el cociente de <span class=\"mth\">1,358 ÷ 7</span>. Puede usar el redondeo o números compatibles. Su hijo(a) podría decir que 1,358 está cerca de 1,400, y <span class=\"mth\">1,400 ÷ 7 = 200</span>. Ahora, use una calculadora para hallar el cociente exacto: <span class=\"mth\">1,358 ÷ 7 = 194</span>. Pida a su hijo(a) que compare este resultado con su estimación: 194 está cerca de 200. La estimación le ayudó a que saber que la respuesta es razonable. Si la respuesta no está cerca de la estimación, vuelva a intentarlo. Repita la actividad con otros problemas de división, por ejemplo:</p>  <p><span class=\"mth\">4,765 ÷ 4 = ?</span></p> <p><span class=\"mth\">7,128 ÷ 10 = ?</span></p> <p><span class=\"mth\">2,898 ÷ 9 = ?</span></p> <p><span class=\"mth\">4,745 ÷ 12 = ?</span></p>"
+   }
   }
  },
  "5-11": {
@@ -180,6 +330,16 @@ const LESSON_HELP = {
    "activity": {
     "title": "Connect the math",
     "html": "<p>You can connect the math in this topic to everyday experiences. Ask your child to help when you need to figure out situations in which a quantity is shared or divided up. You might need to share <span class=\"mth\">$155</span> earned at a garage sale among 4 people or a cut a 72-inch board into 6 equal lengths. As your child is able to work with greater numbers, an ideal situation is figuring out gas mileage. You might say, “We were able to travel 390 miles on our last tank of gas and the car’s gas tank holds 18 gallons. How many miles are we able to travel for each gallon?” Encourage your child to estimate before calculating and then compare the exact answer to the estimate.</p>"
+   }
+  },
+  "es": {
+   "page": "https://media.pk12ls.com/curriculum/math/enVisionFlorida_2023/family_engage/g04_t05_overview_es.html",
+   "animation": null,
+   "video": null,
+   "mathHelp": [],
+   "activity": {
+    "title": "Conectar las matemáticas",
+    "html": "<p>Puede conectar las Matemáticas en este tema con las experiencias diarias. Pídale ayuda a su niño(a) cuando necesite resolver situaciones en las que deba repartir o dividir una cantidad. Podría necesitar dividir entre 4 personas $155 ganados en una venta de patio o cortar una tabla de 72 pulgadas en 6 longitudes iguales. Dado que su niño(a) puede trabajar con números más grandes, una situación ideal sería averiguar el rendimiento de la gasolina. Podría decir “Pudimos viajar 390 millas con nuestro último tanque de gasolina y el tanque es de 18 galones. ¿Cuántas millas podemos viajar por cada galón?” Anime a su niño(a) a estimar antes de calcular y luego comparar el resultado exacto con la estimación.</p>"
    }
   }
  }
