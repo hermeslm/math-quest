@@ -57,6 +57,46 @@
     </div>
   </main>
 
+  <!-- HELP AT HOME (parent guide) -->
+  <main id="help" class="screen" hidden>
+    <section class="card help-head">
+      <div class="setup-icon" id="h-icon"></div>
+      <div>
+        <p class="pill-label">👪 Parent corner</p>
+        <h2 id="h-title"></h2>
+        <p id="h-about" class="muted"></p>
+      </div>
+    </section>
+
+    <section class="card help-card">
+      <h3>🎬 Watch and learn together</h3>
+      <div id="h-media" class="media-btns"></div>
+      <ol class="guide">
+        <li><b>Watch first.</b> Sit with your child and play the <b>Visual Learning Animation</b>. It shows the idea of the lesson step by step.</li>
+        <li><b>Pause and ask.</b> When the animation asks a question, pause it. Let your child answer before you continue.</li>
+        <li><b>Retell it.</b> At the end, ask your child to explain the method in their own words, or to show it with a drawing.</li>
+        <li><b>Still stuck?</b> Watch the <b>Another Look Video</b>. It explains the same idea in a different way.</li>
+        <li><b>Practice.</b> Work through the example below together, try the home activity, then start a Division Quest test.</li>
+      </ol>
+    </section>
+
+    <section class="card help-card" id="h-mathhelp-card">
+      <h3>🧮 Math help at home</h3>
+      <div id="h-mathhelp" class="rich"></div>
+    </section>
+
+    <section class="card help-card">
+      <h3>🏠 Home activity: <span id="h-act-title"></span></h3>
+      <div id="h-activity" class="rich"></div>
+    </section>
+
+    <p class="source">Source: <a id="h-source" target="_blank" rel="noopener">enVision Florida Family Engagement — lesson page</a></p>
+    <div class="actions center">
+      <button id="help-start" class="btn primary">Start practice 🚀</button>
+      <button id="help-back" class="btn ghost">📚 All lessons</button>
+    </div>
+  </main>
+
   <!-- RESULTS -->
   <main id="results" class="screen" hidden>
     <section class="card results-card">
@@ -89,12 +129,17 @@
         <button type="button" id="start-btn" class="btn primary">Start! 🚀</button>
         <button type="button" id="print-btn" class="btn ghost">🖨️ Printable worksheet</button>
       </div>
+      <div class="actions center" id="setup-help">
+        <button type="button" id="help-btn" class="btn ghost">👪 Help at home</button>
+        <a id="anim-btn" class="btn ghost" target="_blank" rel="noopener">🎬 Lesson animation</a>
+      </div>
       <button value="cancel" class="close-x" aria-label="Close">✕</button>
     </form>
   </dialog>
 
   <div id="print-area"></div>
 
+  <script src="js/lesson-help.js"></script>
   <script src="js/generators.js"></script>
   <script src="js/app.js"></script>
 </body>

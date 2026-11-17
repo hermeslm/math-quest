@@ -89,9 +89,38 @@ function openSetup(L) {
   $("#s-icon").textContent = L.icon;
   $("#s-title").textContent = L.id === "mix" ? L.title : `Lesson ${L.id}: ${L.title}`;
   $("#s-about").textContent = L.about;
+  const help = helpFor(L.id);
+  $("#setup-help").hidden = !help;
+  if (help) {
+    $("#anim-btn").hidden = !help.animation;
+    if (help.animation) $("#anim-btn").href = help.animation;
+  }
   document.querySelectorAll("#count-pick button").forEach(b =>
     b.classList.toggle("on", +b.dataset.n === state.count));
   $("#setup").showModal();
+}
+
+// ---------- help at home (parent guide) ----------
+const helpFor = id => (typeof LESSON_HELP !== "undefined" && LESSON_HELP[id] ? LESSON_HELP[id].en : null);
+
+function renderHelp(L) {
+  const H = helpFor(L.id);
+  if (!H) return;
+  state.lesson = L;
+  $("#h-icon").textContent = L.icon;
+  $("#h-title").textContent = `Lesson ${L.id}: ${L.title}`;
+  $("#h-about").textContent = L.about;
+  const media = [];
+  if (H.animation) media.push(`<a class="btn primary" href="${H.animation}" target="_blank" rel="noopener">🎬 Visual Learning Animation</a>`);
+  if (H.video) media.push(`<a class="btn ghost" href="${H.video}" target="_blank" rel="noopener">📺 Another Look Video</a>`);
+  $("#h-media").innerHTML = media.length ? media.join("")
+    : `<p class="muted">This lesson has no animation of its own. Use the animations from earlier lessons and the real-life ideas below.</p>`;
+  $("#h-mathhelp-card").hidden = !H.mathHelp.length;
+  $("#h-mathhelp").innerHTML = H.mathHelp.map(m => `<h4>${m.title}</h4>${m.html}`).join("");
+  $("#h-act-title").textContent = H.activity.title;
+  $("#h-activity").innerHTML = H.activity.html;
+  $("#h-source").href = H.page;
+  show("help");
 }
 
 // ---------- quiz ----------
@@ -224,7 +253,7 @@ function finishQuestion(correct, given) {
   state.locked = true;
   state.results.push({ correct, firstTry: correct && state.attempts === 1, given });
   document.querySelectorAll("#q-answer input, .choice").forEach(el => (el.disabled = true));
-  $("#q-steps").innerHTML = stepsHTML(Q);
+  $("#q-steps").innerHTML = stepsHTML(Q, !correct);
   $("#q-steps").hidden = false;
   $("#check-btn").hidden = true;
   $("#hint-btn").hidden = true;
@@ -235,8 +264,11 @@ function finishQuestion(correct, given) {
   $("#q-score").textContent = `⭐ ${state.results.filter(r => r.correct).length}`;
 }
 
-function stepsHTML(Q) {
-  return `<h4>🦉 How to solve it</h4><ol>${Q.steps.map(s => `<li>${s}</li>`).join("")}</ol>`;
+function stepsHTML(Q, withVideo) {
+  const H = withVideo && helpFor(Q.lesson);
+  const watch = H && H.animation
+    ? `<a class="watch-link" href="${H.animation}" target="_blank" rel="noopener">🎬 Watch the lesson ${Q.lesson} animation with a grown-up</a>` : "";
+  return `<h4>🦉 How to solve it</h4><ol>${Q.steps.map(s => `<li>${s}</li>`).join("")}</ol>${watch}`;
 }
 
 function next() {
@@ -271,7 +303,7 @@ function showResults() {
       <div class="ri-q">${k + 1}. ${Q.prompt}</div>
       <div class="ri-a">${r.correct ? "✅" : "❌"} Your answer: ${showAnswerText(Q, r.given)}
         ${r.correct ? "" : ` · Correct answer: <b>${Q.answerText}</b>`}</div>
-      <details ${r.correct ? "" : "open"}><summary>How to solve it</summary><div class="steps">${stepsHTML(Q)}</div></details>
+      <details ${r.correct ? "" : "open"}><summary>How to solve it</summary><div class="steps">${stepsHTML(Q, !r.correct)}</div></details>
     </div>`;
   }).join("");
 
@@ -305,6 +337,9 @@ $("#go-home").onclick = renderHome;
 $("#menu-btn").onclick = renderHome;
 $("#again-btn").onclick = () => { state.questions = makeTest(state.lesson.id, state.count); state.i = 0; state.results = []; show("quiz"); renderQuestion(); };
 $("#start-btn").onclick = startQuiz;
+$("#help-btn").onclick = () => { $("#setup").close(); renderHelp(state.lesson); };
+$("#help-start").onclick = () => openSetup(state.lesson);
+$("#help-back").onclick = renderHome;
 $("#print-btn").onclick = printWorksheet;
 $("#check-btn").onclick = () => check();
 $("#next-btn").onclick = next;

@@ -215,3 +215,28 @@ dialog::backdrop { background: rgba(43, 45, 66, .45); }
   .ws-key { break-before: page; }
   .tag { background: none; border: 1px solid #000; color: #000; }
 }
+
+/* ---------- Help at home ---------- */
+.help-head { display: flex; gap: 16px; align-items: center; margin-bottom: 16px; }
+.help-head h2 { margin: 0; line-height: 1.15; }
+.pill-label { margin: 0; font-weight: 800; color: var(--primary); text-transform: uppercase; font-size: .85rem; letter-spacing: .05em; }
+.muted { color: var(--muted); margin: 4px 0 0; }
+.help-card { margin-bottom: 16px; }
+.help-card h3 { margin: 0 0 10px; font-size: 1.35rem; }
+.media-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+a.btn { text-decoration: none; display: inline-block; color: var(--ink); }
+a.btn.primary { color: var(--primary-ink); }
+#setup-help .btn { font-size: 1.05rem; padding: 8px 16px; }
+.guide li { margin: 6px 0; }
+.rich { font-size: 1.1rem; line-height: 1.5; }
+.rich p { margin: 6px 0; }
+.rich img { max-width: 100%; height: auto; background: #fff; border-radius: 10px; padding: 6px; }
+.rich h4 { margin: 10px 0 2px; color: var(--muted); }
+.mth { white-space: nowrap; font-weight: 700; }
+.frac { display: inline-flex; flex-direction: column; vertical-align: middle; font-size: .8em; line-height: 1; text-align: center; margin: 0 2px; }
+.frac sup, .frac sub { vertical-align: baseline; font-size: 1em; }
+.frac sup { border-bottom: 2px solid currentColor; }
+.source { text-align: center; font-size: .9rem; color: var(--muted); }
+.source a { color: var(--primary); }
+.watch-link { display: inline-block; margin-top: 6px; color: var(--primary); font-weight: 700; }
+@media (max-width: 560px) { .help-head { flex-direction: column; text-align: center; } }
