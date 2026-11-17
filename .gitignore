@@ -1,3 +1,6 @@
 node_modules/
 .DS_Store
 *.log
+
+# Savvas source material: kept locally, not published
+*.pdf

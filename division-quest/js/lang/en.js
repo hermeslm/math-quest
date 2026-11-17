@@ -92,6 +92,7 @@ LANGS.en = {
     wsDate: "Date:",
     wsQuotient: "Quotient:",
     answerKey: "Answer Key",
+    copyright: `A free, non-profit practice tool for parents and kids. Lesson names, Help at Home content, images, animations and videos are © Savvas Learning Company LLC, from the <a href="${"https://media.pk12ls.com/curriculum/math/enVisionFlorida_2023/family_engage/g04_t05_overview_en.html"}" target="_blank" rel="noopener">enVision Florida Mathematics Family Engagement</a> site. Not affiliated with or endorsed by Savvas.`,
   },
 
   gen: {

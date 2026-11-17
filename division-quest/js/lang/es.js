@@ -98,6 +98,7 @@ LANGS.es = {
     wsDate: "Fecha:",
     wsQuotient: "Cociente:",
     answerKey: "Respuestas",
+    copyright: `Una herramienta de práctica gratuita y sin fines de lucro para padres e hijos. Los nombres de las lecciones, el contenido de Ayuda en casa, las imágenes, las animaciones y los videos son © Savvas Learning Company LLC, del sitio <a href="${"https://media.pk12ls.com/curriculum/math/enVisionFlorida_2023/family_engage/g04_t05_overview_es.html"}" target="_blank" rel="noopener">enVision Florida Matemáticas — Participación familiar</a>. No está afiliado ni respaldado por Savvas.`,
   },
 
   gen: {

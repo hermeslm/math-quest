@@ -24,3 +24,9 @@ Double-click `index.html` to open it in any web browser. You don't need to insta
 - `js/app.js` – quiz screens, scoring, keypad, sounds, printing, language switch
 - `tools/extract_lesson_help.py` – rebuilds `js/lesson-help.js` and `assets/lessons/`:
   `python3 tools/extract_lesson_help.py --langs en,es`
+
+## Credits and copyright
+This is a free, **non-profit** tool for parents to practice math at home with their kids. It is not affiliated with or endorsed by Savvas Learning Company.
+
+- Lesson names and order, the **Help at Home** text and example images (`js/lesson-help.js`, `assets/lessons/`), and the linked **Visual Learning Animations** and **Another Look Videos** are © Savvas Learning Company LLC. They come from the [enVision Florida Mathematics Family Engagement](https://media.pk12ls.com/curriculum/math/enVisionFlorida_2023/family_engage/g04_t05_overview_en.html) site ([Español](https://media.pk12ls.com/curriculum/math/enVisionFlorida_2023/family_engage/g04_t05_overview_es.html)).
+- The random question generators, worked solutions and app code are original work.
