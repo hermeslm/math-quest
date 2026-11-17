@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Division Quest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button class="logo" id="go-home" title="Home">🦉 Division Quest</button>
+    <button class="icon-btn" id="sound-btn" title="Sound on/off">🔊</button>
+  </header>
+
+  <!-- HOME -->
+  <main id="home" class="screen">
+    <section class="hero">
+      <div class="mascot">🦉</div>
+      <div class="bubble">
+        <h1>Hi, math explorer!</h1>
+        <p>Pick a lesson from <b>Topic 5: Divide by 1-Digit Numbers</b>. Every test is new and random!</p>
+      </div>
+    </section>
+    <div id="lesson-grid" class="lesson-grid"></div>
+  </main>
+
+  <!-- QUIZ -->
+  <main id="quiz" class="screen" hidden>
+    <div class="quiz-head">
+      <span id="q-lesson" class="pill"></span>
+      <span id="q-count"></span>
+      <span id="q-score" class="pill score"></span>
+    </div>
+    <div class="progress"><div id="q-progress"></div></div>
+
+    <section class="card question-card">
+      <p id="q-prompt" class="prompt"></p>
+      <div id="q-visual"></div>
+      <div id="q-answer" class="answer-area"></div>
+      <div id="q-feedback" class="feedback" aria-live="polite"></div>
+      <div id="q-hint" class="hint" hidden></div>
+      <div id="q-steps" class="steps" hidden></div>
+      <div class="actions">
+        <button id="hint-btn" class="btn ghost">💡 Hint</button>
+        <button id="check-btn" class="btn primary">Check ✔</button>
+        <button id="next-btn" class="btn primary" hidden>Next ➜</button>
+      </div>
+    </section>
+
+    <div id="keypad" class="keypad">
+      <button data-k="1">1</button><button data-k="2">2</button><button data-k="3">3</button>
+      <button data-k="4">4</button><button data-k="5">5</button><button data-k="6">6</button>
+      <button data-k="7">7</button><button data-k="8">8</button><button data-k="9">9</button>
+      <button data-k="back" class="k-alt" aria-label="Erase">⌫</button><button data-k="0">0</button><button data-k="enter" class="k-go">✔</button>
+    </div>
+  </main>
+
+  <!-- RESULTS -->
+  <main id="results" class="screen" hidden>
+    <section class="card results-card">
+      <div id="r-stars" class="big-stars"></div>
+      <h2 id="r-title"></h2>
+      <p id="r-score" class="r-score"></p>
+      <div class="actions center">
+        <button id="again-btn" class="btn primary">🔄 New test</button>
+        <button id="menu-btn" class="btn ghost">📚 Pick a lesson</button>
+      </div>
+    </section>
+    <h3 class="review-title">Let's review</h3>
+    <div id="r-review"></div>
+  </main>
+
+  <!-- LESSON SETUP DIALOG -->
+  <dialog id="setup">
+    <form method="dialog" class="setup-form">
+      <div class="setup-icon" id="s-icon"></div>
+      <h2 id="s-title"></h2>
+      <p id="s-about"></p>
+      <p class="label">How many questions?</p>
+      <div class="count-pick" id="count-pick">
+        <button type="button" data-n="5">5</button>
+        <button type="button" data-n="10" class="on">10</button>
+        <button type="button" data-n="15">15</button>
+        <button type="button" data-n="20">20</button>
+      </div>
+      <div class="actions center">
+        <button type="button" id="start-btn" class="btn primary">Start! 🚀</button>
+        <button type="button" id="print-btn" class="btn ghost">🖨️ Printable worksheet</button>
+      </div>
+      <button value="cancel" class="close-x" aria-label="Close">✕</button>
+    </form>
+  </dialog>
+
+  <div id="print-area"></div>
+
+  <script src="js/generators.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
