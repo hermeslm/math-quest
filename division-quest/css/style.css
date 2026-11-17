@@ -243,11 +243,14 @@ a.btn.primary { color: var(--primary-ink); }
 
 /* ---------- Language switch ---------- */
 .top-actions { display: flex; gap: 8px; align-items: center; }
+/* Fixed high-contrast colors (same in light and dark mode) so it is easy to spot */
 .lang-btn {
-  background: var(--card); border: 2px solid var(--line); border-radius: 999px;
+  background: #ffe8a3; color: #2b2d42; border: 2px solid #c99a1a; border-radius: 999px;
   padding: 6px 14px; font-weight: 800; font-size: 1rem; min-height: 48px;
+  box-shadow: 0 3px 0 #c99a1a;
 }
-.lang-btn:hover { border-color: var(--primary); }
+.lang-btn:hover { background: #ffd966; }
+.lang-btn:active { transform: translateY(2px); box-shadow: 0 1px 0 #c99a1a; }
 .logo, .lang-btn { white-space: nowrap; }
 @media (max-width: 560px) {
   .topbar { gap: 6px; }
